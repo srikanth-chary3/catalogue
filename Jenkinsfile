@@ -15,7 +15,7 @@ pipeline {
 
     // This is build section
     stages {
-        stage ("Read Version")
+        stage ("Read Version") {
             steps {
                 script {
                     // Defining a variable by reading the package.json file ( This will all the data into packageJSON)
@@ -24,5 +24,6 @@ pipeline {
                     echo app version is: ${appVersion}
                 }
             }
+        }
     }
 }
