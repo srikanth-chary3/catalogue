@@ -6,11 +6,25 @@ pipeline {
     }
     environment {
         COURSE = "Jenkins"
+        appVersion = ""
     }
     options {
         timeout (time: 10, unit: "MINUTES")
         disableConcurrnetBuilds()
     }
 
-    
+    // This is build section
+    stages {
+        stage ("Read Version")
+            steps {
+                script {
+                    sh """
+                    // Defining a variable by reading the package.json file ( This will all the data into packageJSON)
+                    def packageJSON = readJSON file: 'package.json'
+                    appVersion = packageJSON.version
+                    echo "appVersion"
+                    """
+                }
+            }
+    }
 }
