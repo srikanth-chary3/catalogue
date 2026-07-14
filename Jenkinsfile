@@ -8,11 +8,14 @@ pipeline {
         COURSE = "Jenkins"
         appVersion = ""
         username = "srikanthsuthari"
-        password = "srikanth@12345"
+        // password = "srikanth@12345"
     }
     options {
         timeout (time: 10, unit: "MINUTES")
         disableConcurrentBuilds()
+    }
+    parameters {
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
     // This is build section
@@ -34,7 +37,7 @@ pipeline {
                     sh """
                     docker build -t srikanthsuthari/catalogue:${appVersion} .
                     docker images
-                    docker login -u ${username} --password-stdin ${password}
+                    docker login -u ${username} --password-stdin $(params.PASSWORD)
                     docker push srikanthsuthari/catalogue:${appVersion}
                     """
                     // docker push -u srikanthsuthari -p srikanth@12345
