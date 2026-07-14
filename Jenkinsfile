@@ -35,7 +35,7 @@ pipeline {
                     docker build -t srikanthsuthari/catalogue:${appVersion} .
                     docker images
                     docker login -u ${username} -p ${password}
-                    docker push
+                    docker push srikanthsuthari/catalogue:${appVersion}
                     """
                     // docker push -u srikanthsuthari -p srikanth@12345
                 }
