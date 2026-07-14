@@ -32,6 +32,7 @@ pipeline {
                     sh """
                     docker build -t srikanthsuthari/catalogue:${appVersion} .
                     docker images
+                    docker push
                     """
                 }
                 // echo ${appVersion}
