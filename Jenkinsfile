@@ -25,9 +25,9 @@ pipeline {
                 }
             }
         }
-        stage ("Deploy") {
+        stage ("Build") {
             steps {
-                echo "Deploying"
+                echo "Building"
                 // echo ${appVersion}
             }
         }
