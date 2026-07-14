@@ -7,6 +7,8 @@ pipeline {
     environment {
         COURSE = "Jenkins"
         appVersion = ""
+        username = "srikanthsuthari"
+        password = "srikanth@12345"
     }
     options {
         timeout (time: 10, unit: "MINUTES")
@@ -32,8 +34,9 @@ pipeline {
                     sh """
                     docker build -t srikanthsuthari/catalogue:${appVersion} .
                     docker images
-                    docker push -u srikanthsuthari -p srikanth@12345
+                    docker push ${username} ${password}
                     """
+                    // docker push -u srikanthsuthari -p srikanth@12345
                 }
                 // echo ${appVersion}
             }
