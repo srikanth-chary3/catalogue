@@ -28,6 +28,12 @@ pipeline {
         stage ("Build") {
             steps {
                 echo "Building docker image"
+                script {
+                    sh """
+                    docker build -t srikanthsuthari/catalogue:${appVersion} .
+                    docker images
+                    """
+                }
                 // echo ${appVersion}
             }
         }
