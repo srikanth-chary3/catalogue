@@ -5,6 +5,12 @@ pipeline {
         }
     }
     environment {
-        Key="Value"
+        COURSE = "Jenkins"
     }
+    options {
+        timeout (time: 10, unit: "MINUTES")
+        disableConcurrnetBuilds()
+    }
+
+    
 }
