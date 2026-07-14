@@ -10,7 +10,7 @@ pipeline {
     }
     options {
         timeout (time: 10, unit: "MINUTES")
-        disableConcurrnetBuilds()
+        disableConcurrentBuilds()
     }
 
     // This is build section
