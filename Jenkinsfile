@@ -27,7 +27,7 @@ pipeline {
         }
         stage ("Build") {
             steps {
-                echo "Building"
+                echo "Building docker image"
                 // echo ${appVersion}
             }
         }
