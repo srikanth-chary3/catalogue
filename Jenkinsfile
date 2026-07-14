@@ -19,9 +19,11 @@ pipeline {
             steps {
                 script {
                     // Defining a variable by reading the package.json file ( This will all the data into packageJSON)
+                    sh """
                     def packageJSON = readJSON file: 'package.json'
                     appVersion = packageJSON.version
                     echo "app version is: ${appVersion}"
+                    """
                 }
             }
         }
