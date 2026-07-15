@@ -42,17 +42,17 @@ pipeline {
                 // echo ${appVersion}
             }
         }
-        post {
-            always {
-                echo "Cleaning the workspace"
-                cleanWs()
-            }
-            success {
-                echo "The pipeline is successful"
-            }
-            failure {
-                echo "The pipeline is failed"
-            }
+    }
+    post {
+        always {
+            echo "Cleaning the workspace"
+            cleanWs()
+        }
+        success {
+            echo "The pipeline is successful"
+        }
+        failure {
+            echo "The pipeline is failed"
         }
     }
 }
