@@ -8,7 +8,7 @@ pipeline {
         PROJECT = "roboshop"
         COMPONENT = "catalogue"
     // Keeping this appVersion for defining the variable value from a read function with def keyword as packageJSON
-        appVersion = ""
+        // appVersion = ""
     }
     options {
         timeout(time: 10, unit: 'MINUTES')
