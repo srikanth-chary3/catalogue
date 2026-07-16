@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Reading the package.json file using readJSON function and assigning it to packageJSON using def
-                    def packageJSON = readJSON 'package.json'
+                    def packageJSON = readJSON file: 'package.json'
                     sh """ echo packageJSON """
                     //appVersion = packageJSON.version
                 }
