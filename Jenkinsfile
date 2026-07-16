@@ -7,8 +7,10 @@ pipeline {
     environment {
         PROJECT = "roboshop"
         COMPONENT = "catalogue"
+
     // Keeping this appVersion for defining the variable value from a read function with def keyword as packageJSON
-        // appVersion = ""
+        appVersion = ""
+        ACC_ID = "173237057266"
     }
     options {
         timeout(time: 10, unit: 'MINUTES')
@@ -26,6 +28,19 @@ pipeline {
                 }
             }
         }
-        stage ("Push ")
+        stage ("Push "){
+            steps {
+                script {
+                    withAWS(region:'us-east-1',credentials:'aws-creds') {
+                        sh """
+                        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com
+                        docker build -t ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}/${COMPONENT}:${appVersion} .
+                        docker images
+                        
+                        """
+                    }
+                }
+            }
+        }
     }
 }
