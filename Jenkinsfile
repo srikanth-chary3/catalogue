@@ -17,10 +17,12 @@ pipeline {
     stages {
         stage ("Build") {
             steps {
-                // Reading the package.json file using readJSON function and assigning it to packageJSON using def
-                def packageJSON = readJSON 'package.json'
-                echo packageJSON
-                //appVersion = packageJSON.version
+                script {
+                    // Reading the package.json file using readJSON function and assigning it to packageJSON using def
+                    def packageJSON = readJSON 'package.json'
+                    echo packageJSON
+                    //appVersion = packageJSON.version
+                }
             }
         }
     }
