@@ -5,3 +5,5 @@ Catalogue with Jenkins
 aws steps
 aws credentials
 SonarQube Scanner
+
+Installed some different version of sonarqube in jenkins tools section.
