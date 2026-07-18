@@ -48,8 +48,10 @@ pipeline {
                 }
             }
         }
-    post {
-        
-    }
+        post {
+            always {
+                echo "I will print on each pipeline build"
+            }
+        }
     }
 }
