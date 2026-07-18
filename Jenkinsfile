@@ -53,7 +53,7 @@ pipeline {
                 echo "I will print on each pipeline build"
             }
             success {
-                echo "The build is success..!"
+                echo "The build is a success..!"
             }
             failure {
                 echo "The build is a failure..!"
