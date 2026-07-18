@@ -52,6 +52,9 @@ pipeline {
             always {
                 echo "I will print on each pipeline build"
             }
+            success {
+                echo "The build is success..!"
+            }
         }
     }
 }
