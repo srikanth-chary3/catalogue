@@ -19,6 +19,7 @@ pipeline {
     stages {
         stage ("checkout") {
             steps {
+                echo "Checkout SCM"
             }
         }
         stage ("Build") {
