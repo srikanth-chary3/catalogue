@@ -40,7 +40,8 @@ pipeline {
         //         }
         //     }
         // }
-
+        //
+        // Added some conditons to the sonarqube quality gate
         // Here we need to select scanner tool and send the analysis to the sonar server
         stage ("Sonar Scan") {
             environment {
