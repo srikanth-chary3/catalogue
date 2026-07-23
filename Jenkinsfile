@@ -46,14 +46,14 @@ pipeline {
             environment {
                 def scannerHome = tool "sonar-8.0"
             }
-            steps {
-                script {
-                    withSonarQubeEnv('sonar-server') {
-                        sh  "${scannerHome}/bin/sonar-scanner"
+                steps {
+                    script {
+                        withSonarQubeEnv('sonar-server') {
+                            sh  "${scannerHome}/bin/sonar-scanner"
+                    }
                 }
             }
         }
-
         stage ("Build") {
             steps {
                 script {
@@ -65,7 +65,7 @@ pipeline {
                 }
             }
         }
-        stage ("Push "){
+        stage ("Push ") {
             steps {
                 script {
                     withAWS(region:'us-east-1',credentials:'aws-creds') {
@@ -81,9 +81,6 @@ pipeline {
             }
         }
     }
-}
-
-
     post {
         always {
             echo "I will print on each pipeline build"
