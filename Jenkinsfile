@@ -42,6 +42,7 @@ pipeline {
         // }
         //
         // Added some conditons to the sonarqube quality gate
+        // like bugs, code smells, condition coverage, maintainability rating, security rating, vulnerabilities
         // Here we need to select scanner tool and send the analysis to the sonar server
         stage ("Sonar Scan") {
             environment {
