@@ -92,6 +92,7 @@ pipeline {
         }
         failure {
             echo "The build is a failure..!"
+            echo "The pipeline doesn't meet the conditions mentioned in the Sonarqube Quality Gates"
         }
     }
 }
