@@ -22,6 +22,11 @@ pipeline {
                 echo "Checkout SCM"
             }
         }
+        stage ("Install Dependencies") {
+            sh """
+                npm install
+            """
+        }
         stage ("Build") {
             steps {
                 script {
