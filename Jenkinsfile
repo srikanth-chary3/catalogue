@@ -10,7 +10,7 @@ pipeline {
 
     // Keeping this appVersion for defining the variable value from a read function with def keyword as packageJSON
         appVersion = ""
-        ACC_ID = "173237057266"
+        ACC_ID = "173237057266" // Change the account id according to the account
     }
     options {
         timeout(time: 10, unit: 'MINUTES')
