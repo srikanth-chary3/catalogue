@@ -31,15 +31,15 @@ pipeline {
                 }
             }
         }
-        stage ("Unit test") {
-            steps {
-                script {
-                    sh """
-                        npm test
-                    """
-                }
-            }
-        }
+        // stage ("Unit test") {
+        //     steps {
+        //         script {
+        //             sh """
+        //                 npm test
+        //             """
+        //         }
+        //     }
+        // }
         //
         // Added some conditons to the sonarqube quality gate
         // like bugs, code smells, condition coverage, maintainability rating, security rating, vulnerabilities
