@@ -31,15 +31,15 @@ pipeline {
                 }
             }
         }
-        // stage ("Unit test") {
-        //     steps {
-        //         script {
-        //             sh """
-        //                 npm test
-        //             """
-        //         }
-        //     }
-        // }
+        stage ("Unit test") {
+            steps {
+                script {
+                    sh """
+                        npm test
+                    """
+                }
+            }
+        }
         //
         // Added some conditons to the sonarqube quality gate
         // like bugs, code smells, condition coverage, maintainability rating, security rating, vulnerabilities
@@ -56,15 +56,15 @@ pipeline {
                 }
             }
         }
-        // stage ("Quality Gates") {
-        //     steps {
-        //         timeout(time: 2, unit: 'MINUTES') {
-        //             // Wait for the quality gate status
-        //             // abortPipeline: true will fail the Jenkins job if the quality gate is 'FAILED'
-        //             waitForQualityGate abortPipeline: true
-        //         }
-        //     }
-        // }
+        stage ("Quality Gates") {
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    // Wait for the quality gate status
+                    // abortPipeline: true will fail the Jenkins job if the quality gate is 'FAILED'
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
         stage ("Build") {
             steps {
                 script {
