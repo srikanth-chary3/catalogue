@@ -65,17 +65,17 @@ pipeline {
         //         }
         //     }
         // }
-        // stage ("Build") {
-        //     steps {
-        //         script {
-        //             // Reading the package.json file using readJSON function and assigning it to packageJSON using def
-        //             def packageJSON = readJSON file: 'package.json'
-        //             // Assigning the packageJSON.version to a variable called appVersion to fetch the version from the file
-        //             appVersion = packageJSON.version
-        //             echo "The app version is: ${appVersion}"
-        //         }
-        //     }
-        // }
+        stage ("Build") {
+            steps {
+                script {
+                    // Reading the package.json file using readJSON function and assigning it to packageJSON using def
+                    def packageJSON = readJSON file: 'package.json'
+                    // Assigning the packageJSON.version to a variable called appVersion to fetch the version from the file
+                    appVersion = packageJSON.version
+                    echo "The app version is: ${appVersion}"
+                }
+            }
+        }
         stage ("Push ") {
             steps {
                 script {
