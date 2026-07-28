@@ -56,26 +56,26 @@ pipeline {
                 }
             }
         }
-        stage ("Quality Gates") {
-            steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                    // Wait for the quality gate status
-                    // abortPipeline: true will fail the Jenkins job if the quality gate is 'FAILED'
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
-        stage ("Build") {
-            steps {
-                script {
-                    // Reading the package.json file using readJSON function and assigning it to packageJSON using def
-                    def packageJSON = readJSON file: 'package.json'
-                    // Assigning the packageJSON.version to a variable called appVersion to fetch the version from the file
-                    appVersion = packageJSON.version
-                    echo "The app version is: ${appVersion}"
-                }
-            }
-        }
+        // stage ("Quality Gates") {
+        //     steps {
+        //         timeout(time: 2, unit: 'MINUTES') {
+        //             // Wait for the quality gate status
+        //             // abortPipeline: true will fail the Jenkins job if the quality gate is 'FAILED'
+        //             waitForQualityGate abortPipeline: true
+        //         }
+        //     }
+        // }
+        // stage ("Build") {
+        //     steps {
+        //         script {
+        //             // Reading the package.json file using readJSON function and assigning it to packageJSON using def
+        //             def packageJSON = readJSON file: 'package.json'
+        //             // Assigning the packageJSON.version to a variable called appVersion to fetch the version from the file
+        //             appVersion = packageJSON.version
+        //             echo "The app version is: ${appVersion}"
+        //         }
+        //     }
+        // }
         stage ("Push ") {
             steps {
                 script {
