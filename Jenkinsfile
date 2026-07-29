@@ -102,6 +102,7 @@ pipeline {
         }
         success {
             echo "The build is a success..!"
+            echo "The image $(component):$(appVersion) has been pused to the registry"
         }
         failure {
             echo "The build is a failure..!"
