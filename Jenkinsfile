@@ -67,6 +67,7 @@ pipeline {
                 }
             }
         }
+        // Building the application
         stage ("Build") {
             steps {
                 script {
