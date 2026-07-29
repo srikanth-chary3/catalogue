@@ -79,6 +79,7 @@ pipeline {
                 }
             }
         }
+        // Building the docker image and pushing it to a private registery like aws ecr
         stage ("Push ") {
             steps {
                 script {
