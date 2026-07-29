@@ -56,6 +56,7 @@ pipeline {
                 }
             }
         }
+        // Here we check the code quality and send the reports to the jenkins server
         stage ("Quality Gates") {
             steps {
                 timeout(time: 10, unit: 'MINUTES') {
